@@ -1,70 +1,85 @@
-# Getting Started with Create React App
+## Project name
 
+Card Maker
+
+## Summary
+
+The main page consists of two sides as editor and preview. If the user edit information on the editor side, changes are applied in the preview side in real-time therefore the user can make the card easily in their own style.
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+<img src="https://github.com/Jongwoop/card-maker/blob/master/public/screenshot/screenshot.gif" alt="screenshot" width="800px" />
 
-In the project directory, you can run:
+## Stack
 
-### `yarn start`
+React, PostCss, React Router, FireBase(Authentication, Realtime Database), Cloudinary
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Main Function
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- It consists of two pages - Login page and Edit/Preview page after authentication
+- In Edit/Preview page, user can edit the business card in edit side and see the update in preview realtime, and data are saved in firebase.
+- Profile pictures are uploaded in consistent format to cloudinary server.
 
-### `yarn test`
+LoginPage  
+<img src="./public/screenshot/Screenshot_Login.png" width ="400">  
+Edit/Preview  
+<img src="./public/screenshot/Screenshot_EditPreview.png" width ="400">
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Folder Structure
 
-### `yarn build`
+```
+Card Maker - react
+├── public/          #static files
+│   └── index.html   #html
+│
+├── src/             #project root
+│   ├── common/
+│   │      └── colors, size.css   #Root CSS
+│   │
+│   ├── components/      #components - reusable components source
+|   │   ├── button.jsx+css
+|   │   ├── card.jsx+css
+|   │   ├── card_add_form.jsx+css
+|   │   ├── card_edit_form.jsx+css
+|   │   ├── editor.jsx+css
+|   │   ├── footer.jsx+css
+|   │   ├── header.jsx+css
+|   │   ├── image_file_input.jsx+css
+|   │   ├── login.jsx+css
+|   │   ├── maker.jsx+css
+|   │   └── preview.jsx+css
+|   │
+│   ├── service/
+|   │   ├── auth_service.js
+|   │   ├── card_repository.js
+|   │   ├── firebase.js
+|   │   └── image_uploader.js
+|   │
+│   ├── app.jsx
+│   ├── app.module.css
+│   ├── index.js
+│   └── index.module.css
+│
+└── package.json
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Component Structure
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+Initial Page
+      ├── Header
+      ├── Login authService
+      └── Footer
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Main Page
+    ├── Maker
+    |     ├── Editor
+    |     ├── CardEditForm
+    |     ├── FileInput
+    |     ├── Button
+    |     |
+    |     ├── CardAddForm
+    |     ├── FileInput
+    |     └── Button
+    └── Preview
+          └── Card
+```
