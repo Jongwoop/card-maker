@@ -10,11 +10,11 @@ class CardRepository {
     return () => ref.off();
   }
   saveCard(userId, card) {
-    firebaseDatabase.database().ref(`${userId}/cards/${card.id}`).set(card);
+    firebaseDatabase.ref(`${userId}/cards/${card.id}`).set(card);
   }
 
   removeCard(userId, card) {
-    firebaseDatabase.database().ref(`${userId}/cards/${card.id}`).remove();
+    firebaseDatabase.ref(`${userId}/cards/${card.id}`).remove();
   }
 }
 
